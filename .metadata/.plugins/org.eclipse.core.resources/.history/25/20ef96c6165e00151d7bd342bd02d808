@@ -1,0 +1,33 @@
+import java.util.Arrays;
+
+public class Grid {
+	boolean[][] map = new boolean[100][100];
+	
+	public void setMap(){
+		for(int x = 0;x < map.length;x++){
+			for(int y = 0;y < map.length;y++){
+				map[x][y] = true;
+			}
+		}
+	}
+	
+	public Grid(){
+		setMap();
+	}
+	
+	public boolean getColor(int position_i, int position_j) {
+		return map[position_i][position_j];
+	}
+
+	public void changeColor(int pos_i, int pos_j) {
+		map[pos_i][pos_j] = !map[pos_i][pos_j];
+	}
+	
+	public int getWidth(){
+		return map[0].length;
+	}
+	
+	public int getHeight(){
+		return map.length;
+	}
+}

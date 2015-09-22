@@ -1,0 +1,39 @@
+
+public class RunTheAnt {
+
+	
+	public static void main(String[] args) {
+		Grid grid = new Grid();
+		TheAnt ant = new TheAnt(50,50, Direction.LEFT);
+		AntAnimator show = new AntAnimator(grid);
+		int ant_h, ant_w;
+		show.buildMap();
+		show.showAnt(ant.get_height_pos(), ant.get_width_pos());
+		
+		for(int b = 0; b < 11000; b++){
+			//is there a better way to do this??
+			try {
+				Thread.sleep(25);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+			
+			ant_h = ant.get_height_pos();
+			ant_w = ant.get_width_pos();
+			
+			if(grid.getColor(ant_h, ant_w) == true){
+				ant.turnRight(ant.get_direction());
+			}
+			else{
+				ant.turnLeft(ant.get_direction());
+			}
+			
+			show.changeGridColor(ant_h, ant_w, grid.getColor(ant_h, ant_w));
+			ant.moveForward(ant.get_direction(), grid);
+			show.showAnt(ant_h, ant_w);
+		}
+		
+
+	}
+}
+

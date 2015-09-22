@@ -1,0 +1,20 @@
+import java.util.Arrays;
+
+public class Grid {
+	boolean[][] map = new boolean[100][100];
+	
+	public void setMap(){
+		Arrays.fill(map, true);
+	}
+	
+	public boolean getColor(int position_i, int position_j) {
+		return map[position_i][position_j];
+	}
+
+	public void changeColor() {
+		// TODO Auto-generated method stub
+		
+	}
+	
+	
+}

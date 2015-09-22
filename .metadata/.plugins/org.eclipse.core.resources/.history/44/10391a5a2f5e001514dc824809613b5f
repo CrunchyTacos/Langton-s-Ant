@@ -1,0 +1,20 @@
+
+public class RunTheAnt {
+
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		Grid grid = new Grid();
+		TheAnt ant = new TheAnt(50,50, Direction.UP);
+		AntAnimator start = new AntAnimator(ant, grid);
+		
+		start.buildMap();
+		
+		boolean color = grid.getColor(ant.get_height_pos(), ant.get_width_pos());
+		if(color){
+			ant.turnRight(direction)
+		}
+	}
+
+}

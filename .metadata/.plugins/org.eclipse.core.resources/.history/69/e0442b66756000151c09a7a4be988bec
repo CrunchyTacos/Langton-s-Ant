@@ -1,0 +1,72 @@
+
+public class TheAnt {
+	
+	int position_i;
+	int position_j;
+	Direction direction;
+	
+	public TheAnt(int pos_i, int pos_j, Direction dir){
+		position_i = pos_i;
+		position_j = pos_j;
+		direction = dir;
+	}
+	public int get_height_pos(){
+		return position_i;
+	}
+	public int get_width_pos(){
+		return position_j;
+	}
+	public boolean getSquareColor(Grid grid) {
+		return grid.getColor(position_i, position_j);
+	}
+	
+	public void turnRight(Direction direction){
+		switch(direction){
+			case UP:
+				this.direction = Direction.RIGHT;
+				break;
+			case RIGHT:
+				this.direction = Direction.DOWN;
+				break;
+			case DOWN:
+				this.direction = Direction.LEFT;
+				break;
+			case LEFT:
+				this.direction = Direction.UP;
+		}
+	}
+	
+	public void turnLeft(Direction direction){
+		switch(direction){
+			case UP:
+				this.direction = Direction.LEFT;
+				break;
+			case RIGHT:
+				this.direction = Direction.UP;
+				break;
+			case DOWN:
+				this.direction = Direction.DOWN;
+				break;
+			case LEFT:
+				this.direction = Direction.RIGHT;
+		}
+	}
+	
+	public void moveForward(Direction direction, Grid grid){
+		grid.changeColor(position_i, position_j);
+		switch(direction){
+			case UP:
+				position_i--;
+				break;
+			case RIGHT:
+				position_j++;
+				break;
+			case DOWN:
+				position_i++;
+				break;
+			case LEFT:
+				position_j--;
+		}
+	}
+}
+

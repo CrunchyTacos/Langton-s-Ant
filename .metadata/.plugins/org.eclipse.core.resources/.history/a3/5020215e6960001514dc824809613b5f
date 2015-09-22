@@ -1,0 +1,16 @@
+
+public class RunTheAnt {
+
+	
+	public static void main(String[] args) {
+		Grid grid = new Grid();
+		TheAnt ant = new TheAnt(50,50, Direction.UP);
+		AntAnimator start = new AntAnimator(ant, grid);
+		
+		start.buildMap();
+		
+		
+		}
+	}
+
+}

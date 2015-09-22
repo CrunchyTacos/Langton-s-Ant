@@ -1,0 +1,12 @@
+
+public class RunTheAnt {
+
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		AntAnimator start = new AntAnimator();
+		start.buildMap();
+	}
+
+}

@@ -1,0 +1,41 @@
+
+public class RunTheAnt {
+
+	
+	public static void main(String[] args) {
+		Grid grid = new Grid();
+		TheAnt ant = new TheAnt(50,50, Direction.LEFT);
+		AntAnimator show = new AntAnimator(ant, grid);
+		
+		show.buildMap();
+		show.showAnt(ant.get_height_pos(), ant.get_width_pos());
+		
+		for(int b = 0; b < 200; b++){
+			try {
+				Thread.sleep(10);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+			System.out.println(ant.direction);
+			System.out.println(grid.getColor(ant.get_height_pos(), ant.get_width_pos()));
+
+			if(grid.getColor(ant.get_height_pos(), ant.get_width_pos()) == true){
+				//Need getter for this or a way to modify it in the ant class
+				ant.turnRight(ant.direction);
+			}
+			else{
+				ant.turnLeft(ant.direction);
+			}
+			show.changeGridColor(ant.get_height_pos(), ant.get_width_pos(), grid.getColor(ant.get_height_pos(), ant.get_width_pos()));
+			
+			ant.moveForward(ant.direction, grid);
+			
+			
+			show.showAnt(ant.get_height_pos(), ant.get_width_pos());
+			
+		}
+		
+
+	}
+}
+

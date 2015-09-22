@@ -1,0 +1,47 @@
+import java.awt.Color;
+import java.awt.Graphics;
+import java.awt.GridLayout;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+
+
+public class AntAnimator {
+	JFrame frame = new JFrame("Langton's Ant");
+	TheAnt ant;
+	Grid grid;
+	
+
+	int width = grid.getWidth();
+	int height = grid.getHeight();
+	
+	JPanel[][] gridsquares = new JPanel[height][width];
+	
+	public AntAnimator(TheAnt ant2, Grid grid2) {
+		ant = ant2;
+		grid = grid2;
+	}
+
+	public void buildMap(){
+		frame.setSize(800, 800);
+		frame.setLayout(new GridLayout(width,height,1,1));
+		
+		for(int i = 0; i < height; i++){
+			for(int j = 0; j < width; j++){
+				gridsquares[i][j] = new JPanel();
+				gridsquares[i][j].setBackground(Color.WHITE);
+				frame.add(gridsquares[i][j]);
+			}
+		}
+		
+		frame.setVisible(true);	
+	}
+	
+	public void showAnt(int height, int width){
+		gridsquares[height][width].setBackground(Color.RED);
+	}
+		
+
+}
+
+
